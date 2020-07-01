@@ -75,3 +75,5 @@ Traceback (most recent call last):
 jinja2.exceptions.TemplateSyntaxError: unexpected char "'" at 36
 2020-07-01 16:10:02,371 INFO: Reitz Recipes startup [in /Users/connorreitz/Documents/Programming/flask_webapp/app/__init__.py:52]
 2020-07-01 16:11:15,939 INFO: Reitz Recipes startup [in /Users/connorreitz/Documents/Programming/flask_webapp/app/__init__.py:52]
+2020-07-01 16:23:36,654 INFO: Reitz Recipes startup [in /Users/connorreitz/Documents/Programming/flask_webapp/app/__init__.py:54]
+2020-07-01 16:23:40,436 INFO: Reitz Recipes startup [in /Users/connorreitz/Documents/Programming/flask_webapp/app/__init__.py:54]
