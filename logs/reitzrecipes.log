@@ -36,3 +36,42 @@ jinja2.exceptions.UndefinedError: 'app.forms.ResetPasswordForm object' has no at
 2020-06-30 21:53:18,964 INFO: Reitz Recipes startup [in /Users/connorreitz/Documents/Programming/flask_webapp/app/__init__.py:50]
 2020-06-30 21:58:26,621 INFO: Reitz Recipes startup [in /Users/connorreitz/Documents/Programming/flask_webapp/app/__init__.py:50]
 2020-06-30 21:58:30,166 INFO: Reitz Recipes startup [in /Users/connorreitz/Documents/Programming/flask_webapp/app/__init__.py:50]
+2020-07-01 16:08:26,173 INFO: Reitz Recipes startup [in /Users/connorreitz/Documents/Programming/flask_webapp/app/__init__.py:52]
+2020-07-01 16:08:29,312 INFO: Reitz Recipes startup [in /Users/connorreitz/Documents/Programming/flask_webapp/app/__init__.py:52]
+2020-07-01 16:09:18,790 ERROR: Exception on /register [GET] [in /Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/app.py:1890]
+Traceback (most recent call last):
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/routes.py", line 82, in register
+    return render_template('register.html', titile='Register', form=form)
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/templating.py", line 138, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/jinja2/environment.py", line 930, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/jinja2/loaders.py", line 129, in load
+    code = environment.compile(source, name, filename)
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/jinja2/environment.py", line 638, in compile
+    self.handle_exception(source=source_hint)
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/templates/register.html", line 2, in template
+    {% import 'bootstrap/wtf.html as wtf %}
+jinja2.exceptions.TemplateSyntaxError: unexpected char "'" at 36
+2020-07-01 16:10:02,371 INFO: Reitz Recipes startup [in /Users/connorreitz/Documents/Programming/flask_webapp/app/__init__.py:52]
+2020-07-01 16:11:15,939 INFO: Reitz Recipes startup [in /Users/connorreitz/Documents/Programming/flask_webapp/app/__init__.py:52]
