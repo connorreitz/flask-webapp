@@ -1,4 +1,4 @@
-2020-06-30 19:56:34,749 ERROR: Exception on /reset_password/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyZXNldF9wYXNzd29yZCI6MSwiZXhwIjoxNTkzNTYxOTg2LjI0NTI3OX0.WLdXvCbxUlGqfhQSR7Dc4unjKGrPBhwWM98FMxDomC8 [GET] [in /Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/app.py:1890]
+2020-07-03 13:17:36,688 ERROR: Exception on / [GET] [in /Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/app.py:1890]
 Traceback (most recent call last):
   File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,28 +12,13 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/app.py", line 1935, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/routes.py", line 188, in reset_password
-    return render_template('reset_password.html', form=form)
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/templating.py", line 137, in render_template
-    return _render(
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/templating.py", line 120, in _render
-    rv = template.render(context)
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
-    self.environment.handle_exception()
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
-    reraise(*rewrite_traceback_stack(source=source))
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
-    raise value.with_traceback(tb)
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/templates/reset_password.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/templates/base.html", line 32, in top-level template code
-    {% block content %}{% endblock %}
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/templates/reset_password.html", line 15, in block "content"
-    {{ form.password2.label }}<br>
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/jinja2/environment.py", line 471, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'app.forms.ResetPasswordForm object' has no attribute 'password2'
-2020-06-30 19:57:21,989 ERROR: Exception on /reset_password/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyZXNldF9wYXNzd29yZCI6MSwiZXhwIjoxNTkzNTYyMDM0LjE1NzUyMn0.tLKEVWEIpMppWkMWqbSrfvmWv9dPBG0VjWlN7hUIJEc [GET] [in /Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/app.py:1890]
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/main/routes.py", line 27, in index
+    page, app.config['POSTS_PER_PAGE'], False)
+NameError: name 'app' is not defined
+2020-07-03 13:18:57,798 INFO: Reitz Recipes startup [in /Users/connorreitz/Documents/Programming/flask_webapp/app/__init__.py:70]
+2020-07-03 13:18:59,900 ERROR: Exception on / [GET] [in /Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/app.py:1890]
 Traceback (most recent call last):
   File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -47,29 +32,23 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/app.py", line 1935, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/routes.py", line 188, in reset_password
-    return render_template('reset_password.html', form=form)
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/templating.py", line 137, in render_template
-    return _render(
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/templating.py", line 120, in _render
-    rv = template.render(context)
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
-    self.environment.handle_exception()
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
-    reraise(*rewrite_traceback_stack(source=source))
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
-    raise value.with_traceback(tb)
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/templates/reset_password.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/templates/base.html", line 32, in top-level template code
-    {% block content %}{% endblock %}
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/templates/reset_password.html", line 15, in block "content"
-    {{ form.repeat_password.label }}<br>
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/jinja2/environment.py", line 471, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'app.forms.ResetPasswordForm object' has no attribute 'password2'
-2020-06-30 21:51:14,690 INFO: Reitz Recipes startup [in /Users/connorreitz/Documents/Programming/flask_webapp/app/__init__.py:50]
-2020-06-30 21:51:32,016 ERROR: Exception on /reset_password/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyZXNldF9wYXNzd29yZCI6MSwiZXhwIjoxNTkzNTY4ODg0LjU2OTkxMzF9.Fq4-kXE07yqlN2YLPZBcRV8LchLJeZGcakDevTsiqKc [GET] [in /Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/app.py:1890]
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/main/routes.py", line 28, in index
+    next_url = url_for('index', page=posts.next_num) \
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/app.py", line 2215, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/helpers.py", line 357, in url_for
+    rv = url_adapter.build(
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/werkzeug/routing.py", line 2179, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'index' with values ['page']. Did you mean 'main.index' instead?
+2020-07-03 13:20:02,214 INFO: Reitz Recipes startup [in /Users/connorreitz/Documents/Programming/flask_webapp/app/__init__.py:70]
+2020-07-03 13:20:04,912 ERROR: Exception on / [GET] [in /Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/app.py:1890]
 Traceback (most recent call last):
   File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -83,8 +62,10 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/app.py", line 1935, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/routes.py", line 188, in reset_password
-    return render_template('reset_password.html', form=form)
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/main/routes.py", line 34, in index
+    return render_template('index.html', title='Home Page', form=form, posts=posts.items,
   File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/templating.py", line 137, in render_template
     return _render(
   File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/templating.py", line 120, in _render
@@ -95,13 +76,33 @@ Traceback (most recent call last):
     reraise(*rewrite_traceback_stack(source=source))
   File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
     raise value.with_traceback(tb)
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/templates/reset_password.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/templates/base.html", line 32, in top-level template code
-    {% block content %}{% endblock %}
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/templates/reset_password.html", line 15, in block "content"
-    {{ form.repeat_password.label }}<br>
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/jinja2/environment.py", line 471, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'app.forms.ResetPasswordForm object' has no attribute 'repeat_password'
-2020-06-30 21:52:18,162 INFO: Reitz Recipes startup [in /Users/connorreitz/Documents/Programming/flask_webapp/app/__init__.py:50]
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/templates/index.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/templates/base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 3, in block "doc"
+    <html{% block html_attribs %}{% endblock html_attribs %}>
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 11, in block "html"
+    {%- endblock metas %}
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 13, in block "body"
+    {%- block styles %}
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/templates/base.html", line 48, in block "content"
+    {% block app_content %}{% endblock %}
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/templates/index.html", line 11, in block "app_content"
+    {% include '_post.html' %}
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/templates/_post.html", line 9, in top-level template code
+    <a href="{{ url_for('user', username=post.author.username )}}">
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/app.py", line 2215, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/helpers.py", line 357, in url_for
+    rv = url_adapter.build(
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/werkzeug/routing.py", line 2179, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'user' with values ['username']. Did you mean 'main.user' instead?
+2020-07-03 13:22:13,694 INFO: Reitz Recipes startup [in /Users/connorreitz/Documents/Programming/flask_webapp/app/__init__.py:70]
