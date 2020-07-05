@@ -1,4 +1,4 @@
-2020-07-03 13:17:36,688 ERROR: Exception on / [GET] [in /Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/app.py:1890]
+2020-07-05 18:10:07,769 ERROR: Exception on /search [GET] [in /Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/app.py:1890]
 Traceback (most recent call last):
   File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,11 +14,26 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask_login/utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/main/routes.py", line 27, in index
-    page, app.config['POSTS_PER_PAGE'], False)
-NameError: name 'app' is not defined
-2020-07-03 13:18:57,798 INFO: Reitz Recipes startup [in /Users/connorreitz/Documents/Programming/flask_webapp/app/__init__.py:70]
-2020-07-03 13:18:59,900 ERROR: Exception on / [GET] [in /Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/app.py:1890]
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/main/routes.py", line 135, in search
+    posts, total = Post.search(g.search_form.q.data, page,
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/models.py", line 82, in search
+    ids, total = query_index(cls.__tablename__, expression, page, per_page)
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/search.py", line 21, in query_index
+    search = current_app.elasticsearch.search(
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/elasticsearch/client/utils.py", line 139, in _wrapped
+    return func(*args, params=params, headers=headers, **kwargs)
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/elasticsearch/client/__init__.py", line 1479, in search
+    return self.transport.perform_request(
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/elasticsearch/transport.py", line 345, in perform_request
+    status, headers_response, data = connection.perform_request(
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/elasticsearch/connection/http_urllib3.py", line 256, in perform_request
+    self._raise_error(response.status, raw_data)
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/elasticsearch/connection/base.py", line 287, in _raise_error
+    raise HTTP_EXCEPTIONS.get(status_code, TransportError)(
+elasticsearch.exceptions.NotFoundError: NotFoundError(404, 'index_not_found_exception', 'no such index [post]', post, index_or_alias)
+2020-07-05 18:12:49,862 INFO: Reitz Recipes startup [in /Users/connorreitz/Documents/Programming/flask_webapp/app/__init__.py:74]
+2020-07-05 18:14:04,382 INFO: Reitz Recipes startup [in /Users/connorreitz/Documents/Programming/flask_webapp/app/__init__.py:74]
+2020-07-05 18:14:10,036 ERROR: Exception on /search [GET] [in /Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/app.py:1890]
 Traceback (most recent call last):
   File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -34,21 +49,25 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask_login/utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/main/routes.py", line 28, in index
-    next_url = url_for('index', page=posts.next_num) \
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/helpers.py", line 370, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/app.py", line 2215, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/helpers.py", line 357, in url_for
-    rv = url_adapter.build(
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/werkzeug/routing.py", line 2179, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'index' with values ['page']. Did you mean 'main.index' instead?
-2020-07-03 13:20:02,214 INFO: Reitz Recipes startup [in /Users/connorreitz/Documents/Programming/flask_webapp/app/__init__.py:70]
-2020-07-03 13:20:04,912 ERROR: Exception on / [GET] [in /Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/app.py:1890]
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/main/routes.py", line 135, in search
+    posts, total = Post.search(g.search_form.q.data, page,
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/models.py", line 82, in search
+    ids, total = query_index(cls.__tablename__, expression, page, per_page)
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/search.py", line 21, in query_index
+    search = current_app.elasticsearch.search(
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/elasticsearch/client/utils.py", line 139, in _wrapped
+    return func(*args, params=params, headers=headers, **kwargs)
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/elasticsearch/client/__init__.py", line 1479, in search
+    return self.transport.perform_request(
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/elasticsearch/transport.py", line 345, in perform_request
+    status, headers_response, data = connection.perform_request(
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/elasticsearch/connection/http_urllib3.py", line 256, in perform_request
+    self._raise_error(response.status, raw_data)
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/elasticsearch/connection/base.py", line 287, in _raise_error
+    raise HTTP_EXCEPTIONS.get(status_code, TransportError)(
+elasticsearch.exceptions.NotFoundError: NotFoundError(404, 'index_not_found_exception', 'no such index [post]', post, index_or_alias)
+2020-07-05 18:18:56,689 INFO: Reitz Recipes startup [in /Users/connorreitz/Documents/Programming/flask_webapp/app/__init__.py:74]
+2020-07-05 18:19:04,754 ERROR: Exception on /search [GET] [in /Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/app.py:1890]
 Traceback (most recent call last):
   File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -64,45 +83,22 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask_login/utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/main/routes.py", line 34, in index
-    return render_template('index.html', title='Home Page', form=form, posts=posts.items,
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/templating.py", line 137, in render_template
-    return _render(
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/templating.py", line 120, in _render
-    rv = template.render(context)
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
-    self.environment.handle_exception()
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
-    reraise(*rewrite_traceback_stack(source=source))
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
-    raise value.with_traceback(tb)
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/templates/index.html", line 2, in top-level template code
-    {% import 'bootstrap/wtf.html' as wtf %}
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/templates/base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 3, in block "doc"
-    <html{% block html_attribs %}{% endblock html_attribs %}>
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 11, in block "html"
-    {%- endblock metas %}
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 13, in block "body"
-    {%- block styles %}
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/templates/base.html", line 48, in block "content"
-    {% block app_content %}{% endblock %}
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/templates/index.html", line 11, in block "app_content"
-    {% include '_post.html' %}
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/templates/_post.html", line 9, in top-level template code
-    <a href="{{ url_for('user', username=post.author.username )}}">
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/helpers.py", line 370, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/app.py", line 2215, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/flask/helpers.py", line 357, in url_for
-    rv = url_adapter.build(
-  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/werkzeug/routing.py", line 2179, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'user' with values ['username']. Did you mean 'main.user' instead?
-2020-07-03 13:22:13,694 INFO: Reitz Recipes startup [in /Users/connorreitz/Documents/Programming/flask_webapp/app/__init__.py:70]
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/main/routes.py", line 135, in search
+    posts, total = Post.search(g.search_form.q.data, page,
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/models.py", line 82, in search
+    ids, total = query_index(cls.__tablename__, expression, page, per_page)
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/app/search.py", line 21, in query_index
+    search = current_app.elasticsearch.search(
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/elasticsearch/client/utils.py", line 139, in _wrapped
+    return func(*args, params=params, headers=headers, **kwargs)
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/elasticsearch/client/__init__.py", line 1479, in search
+    return self.transport.perform_request(
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/elasticsearch/transport.py", line 345, in perform_request
+    status, headers_response, data = connection.perform_request(
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/elasticsearch/connection/http_urllib3.py", line 256, in perform_request
+    self._raise_error(response.status, raw_data)
+  File "/Users/connorreitz/Documents/Programming/flask_webapp/venv/lib/python3.8/site-packages/elasticsearch/connection/base.py", line 287, in _raise_error
+    raise HTTP_EXCEPTIONS.get(status_code, TransportError)(
+elasticsearch.exceptions.NotFoundError: NotFoundError(404, 'index_not_found_exception', 'no such index [post]', post, index_or_alias)
+2020-07-05 18:39:19,869 INFO: Reitz Recipes startup [in /Users/connorreitz/Documents/Programming/flask_webapp/app/__init__.py:74]
+2020-07-05 18:40:21,589 INFO: Reitz Recipes startup [in /Users/connorreitz/Documents/Programming/flask_webapp/app/__init__.py:74]

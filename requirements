@@ -1,0 +1,13 @@
+beautifulsoup4==4.6.3
+certifi==2018.8.24
+chardet==3.0.4
+click==7.1.1
+Flask==1.1.1
+idna==2.7
+itsdangerous==1.1.0
+Jinja2==2.11.1
+MarkupSafe==1.1.1
+requests==2.19.1
+urllib3==1.23
+virtualenv==15.1.0
+Werkzeug==1.0.0
