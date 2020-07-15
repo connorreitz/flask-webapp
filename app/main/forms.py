@@ -36,3 +36,28 @@ class SearchForm(FlaskForm):
         if 'csrf_enabled' not in kwargs:
             kwargs['csrf_enabled'] = False
         super(SearchForm, self).__init__(*args, **kwargs)
+
+class IngredientForm(Form):
+    """
+    Subform, CSRF disabled since form is never used by itself.
+    """
+
+    ingredient_amount = StringField('Amount (Ex: 1 cup)')
+    ingredient_name = StringField('Ingredient (Ex: sugar)')
+
+class MainIngredientForm(FlaskForm):
+    """
+    Parent form for ingredient subform for dynamic addition/removal
+    of ingredients.
+    """
+
+    ingredients = FieldList(
+        FormField(IngredientForm),
+        min_entries = 1,
+        max_entries = 15
+        )
+
+
+
+
+

@@ -16,6 +16,7 @@ from app.main import bp
 def index():
     form = PostForm()
     if form.validate_on_submit():
+        new_ingredient = Ingredient
         post = Post(body=form.post.data, author=current_user)
         db.session.add(post)
         db.session.commit()
@@ -140,3 +141,28 @@ def search():
         if page > 1 else None
     return render_template('search.html', title='Search', posts=posts,
                            next_url=next_url, prev_url=prev_url)
+@bp.route('new_post')
+@login_required
+def new_post():
+    form = MainIngredientForm()
+
+    if form.validate_on_submit():
+        # Create new ingredient list
+        new_i_list = IngredientList()
+
+        db.session.add(new_i_list)
+
+        for ingredient in form.single_ingredients.data:
+            new_ingredient = Ingredient(**ingredient)
+
+            new_i_list.single_ingredients.append(new_ingredient)
+
+        db.session.commit()
+
+    ingredient_lists = IngredientList.query
+
+    return render_template(
+        'new_post.html',
+        form=form,
+        ingredient_lists=ingredient_lists
+        )

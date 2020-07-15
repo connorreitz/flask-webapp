@@ -202,6 +202,23 @@ class Post(SearchableMixin, db.Model):
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
+class IngredientList(db.Model):
+    __tablename__ = 'ingredient_list'
+    id = db.Column(db.Integer, primary_key=True)
+
+class Ingredient(db.Model):
+    __tablename__ = 'single_ingredients'
+
+    id = db.Column(db.Integer, primary_key=True)
+    i_list_id = db.Column(db.Integer, db.ForeignKey('ingredient_list.id'))
+
+    ingredient_amount = db.Column(db.String(50))
+    ingredient_name = db.Column(db.String(50))
+
+    i_list = db.relationship(
+        'IngredientList',
+        backref=db.backref('single_ingredients', lazy=dynamic, collection_class=list))
+
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
